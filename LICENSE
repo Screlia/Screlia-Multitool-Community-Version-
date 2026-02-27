@@ -1,24 +1,89 @@
-This is free and unencumbered software released into the public domain.
+Master Software License Agreement
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+MASTER TAGS:
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+Project-ID: SCRELIA-OSS-2026
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+Principal-Owner: Rahman Studio LLC
 
-For more information, please refer to <https://unlicense.org>
+License-Type: Extended-MIT / Permissive
+
+SPDX-License-Identifier: MIT
+
+Release-Status: Production / Master
+
+Governance-Code: RSL-L1-001
+
+Version: 1.2
+
+Effective Date: January 1, 2026
+
+Copyright (c) 2026 Rahman Studio LLC. All Rights Reserved.
+
+1. Preamble and Purpose
+
+This document serves as the master governing agreement for the software known as "Screlia." By accessing, downloading, or using any part of the Software, the individual or entity (the "Licensee") agrees to be bound by the terms set forth herein. This license is designed to facilitate the open exchange of technology while establishing a clear boundary regarding the ownership, responsibility, and liability of Rahman Studio LLC.
+
+2. Grant of License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction. This grant explicitly includes, without limitation, the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
+
+This grant is intended to be as broad as possible to empower both individual hobbyists and large-scale commercial enterprises. You are encouraged to integrate Screlia into your infrastructure, build specialized plugins, or redistribute the source code as part of a larger Linux distribution (such as Pardus Linux) or a proprietary server-management dashboard.
+
+3. Conditions and Requirement of Attribution
+
+The above copyright notice, this list of conditions, and the following master tags shall be included in all copies or substantial portions of the Software.
+
+This requirement is a fundamental condition of this license. Attribution ensures that the intellectual contribution of Rahman Studio LLC remains recognized as the Software evolves. Whether you are providing the Software as a service, a compiled binary, or an original source repository, the Licensee must provide clear and conspicuous notice of the original copyright and the existence of this master agreement.
+
+4. Scope and Definitions
+
+"Software" refers to the entire collection of data provided under this license, including but not limited to:
+
+Source code (Python, C++, Shell scripts, etc.)
+
+Configuration files and environment templates
+
+Graphical assets, icons, and interface designs
+
+Comprehensive documentation and "ReadMe" materials
+
+Automated build scripts and deployment workflows
+
+This license applies to the current version of Screlia and any future "hotfixes," patches, or minor updates released by the Studio, unless those updates are expressly accompanied by a different governing document.
+
+5. Disclaimer of Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. THIS INCLUDES, BUT IS NOT LIMITED TO, THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+Rahman Studio LLC does not warrant that the Software will function without interruption or that the output provided by the Software will be error-free. The Software is designed for server management; however, due to the complexity of Linux kernel interactions and varied hardware environments, the entire risk regarding the execution and results of the Software is assumed by the Licensee.
+
+6. Limitation of Liability
+
+IN NO EVENT SHALL THE AUTHORS, CONTRIBUTORS, OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE.
+
+This limitation covers all direct, indirect, incidental, special, exemplary, or consequential damages. This specifically includes, but is not limited to:
+
+Procurement of substitute goods or services.
+
+Loss of use, data, or profits.
+
+Business interruption or server downtime.
+
+Systemic failures resulting from the interaction between Screlia and other third-party software.
+
+By utilizing this Software, the Licensee acknowledges that Rahman Studio LLC shall not be held responsible for any catastrophic data loss or hardware failure that may occur during the operation of the Software.
+
+7. No Endorsement
+
+The name of "Rahman Studio LLC" or the "Screlia" project may not be used to endorse or promote products derived from this Software without specific prior written permission. This clause is intended to protect the reputation of the Studio and ensure that derivative works are not mistakenly perceived as official releases from the original authors.
+
+8. Severability and Termination
+
+If any provision of this License is held to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render this License unenforceable or invalid as a whole. The Licensee’s rights under this agreement will terminate automatically if the Licensee fails to comply with any of the terms (specifically the Attribution requirement).
+
+9. Governing Law
+
+This license and all rights and obligations hereunder shall be governed by and construed in accordance with the laws of the jurisdiction in which Rahman Studio LLC is legally established. All disputes arising from this agreement shall be subject to the exclusive jurisdiction of the courts within that territory.
+
+licanse by (https://unlicanse.org)
