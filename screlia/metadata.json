@@ -1,0 +1,5 @@
+{
+  "name": "Screlia",
+  "description": "AI-powered multitool featuring Google Search, Maps, Chat, Voice, and Image generation capabilities.",
+  "requestFramePermissions": ["microphone", "geolocation"]
+}

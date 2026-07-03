@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+    
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidChat(data) {
+      return data.keys().hasAll(['userId', 'title', 'updatedAt'])
+        && data.keys().size() == 3
+        && data.userId is string && data.userId == request.auth.uid
+        && data.title is string && data.title.size() <= 200
+        && data.updatedAt is number;
+    }
+
+    function isValidMessage(data) {
+      return data.keys().hasAll(['role', 'text', 'createdAt'])
+        && (data.keys().size() == 3 || (data.keys().size() == 4 && data.keys().hasAll(['image']) && data.image is string && data.image.size() <= 500000))
+        && data.role is string && (data.role == 'user' || data.role == 'model')
+        && data.text is string && data.text.size() <= 10000
+        && data.createdAt is number;
+    }
+
+    function isValidSearch(data) {
+      return data.keys().hasAll(['userId', 'query', 'createdAt'])
+        && (data.keys().size() == 3 || (data.keys().size() == 4 && data.keys().hasAll(['engine'])))
+        && data.userId is string && data.userId == request.auth.uid
+        && data.query is string && data.query.size() <= 500
+        && data.createdAt is number;
+    }
+
+    function isValidUserSettings(data) {
+      return data.keys().hasAll(['userId', 'apiKey', 'language', 'searchEngine', 'relevance'])
+        && data.userId is string && data.userId == request.auth.uid;
+    }
+
+    match /user_settings/{userId} {
+      allow create: if isSignedIn() && userId == request.auth.uid && isValidUserSettings(incoming());
+      allow update: if isSignedIn() && userId == request.auth.uid && incoming().keys().hasAny(['apiKey', 'language', 'searchEngine', 'relevance']);
+      allow get: if isSignedIn() && userId == request.auth.uid;
+    }
+    
+    match /searches/{searchId} {
+      allow create: if isSignedIn() && isValidId(searchId) && isValidSearch(incoming());
+      allow update: if false; 
+      allow delete: if isSignedIn() && isValidId(searchId) && existing().userId == request.auth.uid;
+      allow get: if isSignedIn() && isValidId(searchId) && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /chats/{chatId} {
+      allow create: if isSignedIn() && isValidId(chatId) && isValidChat(incoming());
+      // Using hasOnly for the update
+      allow update: if isSignedIn() && isValidId(chatId) 
+                    && existing().userId == request.auth.uid
+                    && incoming().diff(existing()).affectedKeys().hasOnly(['title', 'updatedAt'])
+                    && ( !('title' in incoming().diff(existing()).affectedKeys()) || (incoming().title is string && incoming().title.size() <= 200) )
+                    && ( !('updatedAt' in incoming().diff(existing()).affectedKeys()) || (incoming().updatedAt is number) );
+                    
+      allow delete: if isSignedIn() && isValidId(chatId) && existing().userId == request.auth.uid;
+      allow get: if isSignedIn() && isValidId(chatId) && existing().userId == request.auth.uid;
+      // List enforce rule: the query must contain where("userId", "==", request.auth.uid)
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      
+      match /messages/{messageId} {
+        // Needs a master gate
+        allow create: if isSignedIn() && isValidId(messageId) 
+                      && get(/databases/$(database)/documents/chats/$(chatId)).data.userId == request.auth.uid
+                      && isValidMessage(incoming());
+                      
+        allow update: if false; // Messages are immutable once sent
+        allow delete: if isSignedIn() && isValidId(messageId) && get(/databases/$(database)/documents/chats/$(chatId)).data.userId == request.auth.uid;
+        allow get: if isSignedIn() && isValidId(messageId) && get(/databases/$(database)/documents/chats/$(chatId)).data.userId == request.auth.uid;
+        allow list: if isSignedIn() && get(/databases/$(database)/documents/chats/$(chatId)).data.userId == request.auth.uid;
+      }
+    }
+  }
+}
