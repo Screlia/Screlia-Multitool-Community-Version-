@@ -2,20 +2,20 @@
 
 MULTITOOL is a comprehensive, full-stack multi-functional dashboard and toolset designed to provide seamless access to AI assistants, productivity tools, and real-time information. Built meticulously with modern web technologies.
 
-## ✨ Features
+## Features
 
-- **🤖 Advanced AI Chat:** Integrated chat leveraging Gemini, ChatGPT, and Claude models. Supports text and vision (image analysis) modes, plus AI image generation.
-- **🔐 Secure Authentication:** Powered by Firebase Authentication with Google SSO and Email/Password support, including 2FA and email verification.
-- **💾 Cloud Persistence:** User preferences, chat histories, and settings are securely stored in a PostgreSQL database (Cloud SQL) using Drizzle ORM.
-- **🛠️ Productivity Suite:**
+- ** Advanced AI Chat:** Integrated chat leveraging Gemini, ChatGPT, and Claude models. Supports text and vision (image analysis) modes, plus AI image generation.
+- ** Secure Authentication:** Powered by Firebase Authentication with Google SSO and Email/Password support, including 2FA and email verification.
+- ** Cloud Persistence:** User preferences, chat histories, and settings are securely stored in a PostgreSQL database (Cloud SQL) using Drizzle ORM.
+- ** Productivity Suite:**
   - **Notes:** Create, edit, and organize personal notes.
   - **Search:** Enhanced search functionality.
   - **Weather & News:** Real-time information pulled from external services.
   - **Code Studio:** A dedicated space for quick coding and technical problem solving.
-- **🌍 Globalization (i18n):** Deeply integrated language support for English, Deutsch (German), and Türkçe (Turkish).
-- **🎨 Highly Customizable UI:** Fully responsive design with multiple themes (Light, Dark, Midnight, Forest, System) crafted with Tailwind CSS.
+- ** Globalization (i18n):** Deeply integrated language support for English, Deutsch (German), and Türkçe (Turkish).
+- ** Highly Customizable UI:** Fully responsive design with multiple themes (Light, Dark, Midnight, Forest, System) crafted with Tailwind CSS.
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 **Frontend:**
 - React 18
@@ -30,7 +30,7 @@ MULTITOOL is a comprehensive, full-stack multi-functional dashboard and toolset 
 - Drizzle ORM
 - Firebase Admin SDK
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 1. **Clone the repository:**
    ```bash
@@ -66,6 +66,9 @@ MULTITOOL is a comprehensive, full-stack multi-functional dashboard and toolset 
    npm run start
    ```
 
-## 👨‍💻Credits
+## Credits
 
 **MULTITOOL v2.0** is meticulously developed and designed by **Rahman Ege Karasu** (Rahman Studio).
+
+**Warring**
+To utilize AI models, obtain your API key.
